@@ -35,6 +35,7 @@ import { TechnicianListComponent } from './components/technician/technician-list
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { timeout } from 'rxjs';
+import { AuthInterceptorProvider } from './interceptor/auth';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { timeout } from 'rxjs';
     ToastrModule.forRoot({timeOut: 4000,
       closeButton: true, progressBar: true})
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
