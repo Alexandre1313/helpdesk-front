@@ -1,0 +1,94 @@
+.container {
+    height: 100%;
+    background: linear-gradient(211deg, rgba(59,123,189,1) 72%, rgba(19,217,236,0.2974016853932584) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form {
+    height: 60%;
+    width: 30%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: rgb(235, 235, 235);
+    padding: 1% 1%;
+    border-radius: 1rem;
+ }
+ h1 {
+     width: 100%;
+     height: 10%;
+     text-align: center;
+ }
+ img {
+    height: 30%;
+    width: 100%;
+    margin: 1.5rem auto 1.5rem auto; 
+}
+ .full-width {
+     width: 100%;
+     height: 10%;
+     margin-top: 4%;
+ }
+ button {
+     margin-top: 4%;
+ }
+
+ @media screen and (min-width: 476px) and (max-width: 768px){
+    .form {
+        height: 62%;
+        width: 40%;
+        margin: auto;
+        margin-top: 10%;
+        background-color: rgb(235, 235, 235);
+        padding: 1% 3%;
+        border-radius: 1rem;
+     }
+     h1 {
+         width: 100%;
+         height: 10%;
+         text-align: center;
+     }
+     img {
+        height: 30%;
+        width: 100%;
+        margin: 1.5rem auto 1.5rem auto; 
+    }
+     .full-width {
+         width: 100%;
+         height: 10%;
+         margin-top: 4%;
+     }
+     button {
+         margin-top: 4%;
+     }    
+ }
+ 
+ @media screen and (min-width: 274px) and (max-width: 475px) {
+    .form {
+        height: 62%;
+        width: 85%;
+        margin: auto;
+        margin-top: 10%;
+        background-color: rgb(235, 235, 235);
+        padding: 1% 3%;
+        border-radius: 1rem;
+     }
+     h1 {
+         width: 100%;
+         height: 10%;
+         text-align: center;
+     }
+     img {
+        height: 30%;
+        width: 100%;
+        margin: 1.5rem auto 1.5rem auto; 
+    }
+     .full-width {
+         width: 100%;
+         height: 10%;
+         margin-top: 4%;
+     }
+     button {
+         margin-top: 4%;
+     }    
+ }
