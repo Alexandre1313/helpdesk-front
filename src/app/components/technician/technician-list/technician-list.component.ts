@@ -1,3 +1,4 @@
+import { TechnicianService } from './../../../services/technician.service';
 import { Technician } from './../../../models/technician';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,30 +11,24 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TechnicianListComponent implements OnInit {
 
-  ELEMENT_DATA: Technician[] = [
-    {
-      id: 1,
-      name: 'Alexandre Cordeiro',
-      itin: '000.612.689-84',
-      email: 'alexandre.13a@gmail.com',
-      password: '181007n&C',
-      profiles: ['0'],
-      creationDate: '19/03/2022'
-    }
-  ]
+  ELEMENT_DATA: Technician[] = []
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'itin', 'email', 'actions'];
   dataSource = new MatTableDataSource<Technician>(this.ELEMENT_DATA);
-  
-  constructor() { }
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor(private service: TechnicianService) { }
 
   ngOnInit(): void {
-
+    this.findAll();
   }
-  
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-    ngAfterViewInit() {
+
+   findAll(){
+    this.service.findAll().subscribe(answer => {
+      this.ELEMENT_DATA = answer;
+      this.dataSource = new MatTableDataSource<Technician>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
-    }
+    });
+  }
 }
