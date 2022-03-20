@@ -1,4 +1,10 @@
 <div class="conteiner">
+    <h1>Listando técnicos</h1>
+    <button mat-raised-button class="mat-elevation-z9">Novo técnico</button>
+    <mat-form-field appearance="standard" class="mff mat-elevation-z9">
+        <mat-label class="lab">Filter</mat-label>
+        <input matInput  class="imp" (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
     <div class="mat-elevation-z9">
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="id">
@@ -31,7 +37,7 @@
         </table>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-            aria-label="Select page of periodic elements">
+            aria-label="Select page of periodic elements" class="paginat">
         </mat-paginator>
     </div>
 </div>

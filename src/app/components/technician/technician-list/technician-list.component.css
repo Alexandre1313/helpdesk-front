@@ -1,7 +1,31 @@
 table {
-    width: 100%;
+  width: 100%;
+  background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0.023144291896446068) 0%, rgba(47,218,23,0.17720591654630602) 100%);
   }
 .conteiner {
-      width: 90%;
-      margin: auto;
+  width: 89%;
+  margin: auto;
   }
+.paginat {
+  background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0) 0%, rgba(23,194,218,0.4181022750897234) 100%);
+}
+.mff {
+  width: 100%;
+  background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0) 0%, rgba(23,194,218,0.4181022750897234) 100%);
+}
+.lab {
+  margin: 1%;
+}
+.imp{
+  margin: 0% 3%;
+}
+.mat-raised-button {
+  width: 100%;
+  margin-bottom: 2%;
+  background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0) 0%, rgba(23,194,218,0.4181022750897234) 100%);
+}
+h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2%;
+}

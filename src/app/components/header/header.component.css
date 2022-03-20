@@ -8,4 +8,5 @@ h1 {
     border: 1px solid rgb(161, 159, 159);
     padding: 1rem 10%;
     border-radius: 1rem;
+    background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0) 0%, rgba(23,194,218,0.4181022750897234) 100%);
 }

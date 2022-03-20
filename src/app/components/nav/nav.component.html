@@ -1,24 +1,24 @@
 <mat-drawer-container class="container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-drawer #drawer class="sidenav mat-elevation-z19" mode="side">
         <img src="assets/img/side-image.svg" alt="Imagem de Navegação">
         <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="home">
+            <a mat-list-item routerLink="home" class="mat-elevation-z1">
                 <i class="material-icons">home</i>
                 Home
             </a>
-            <a mat-list-item routerLink="tecnicos">
+            <a mat-list-item routerLink="tecnicos" class="mat-elevation-z1">
                 <i class="material-icons">account_circle</i>
                 Técnicos
             </a>
-            <a mat-list-item routerLink="/">
+            <a mat-list-item routerLink="/" class="mat-elevation-z1">
                 <i class="material-icons">person</i>
                 Clientes
             </a>
-            <a mat-list-item routerLink="/">
+            <a mat-list-item routerLink="/" class="mat-elevation-z1">
                 <i class="material-icons">code</i>
                 Github
             </a>
-            <a mat-list-item (click)="logout()">
+            <a mat-list-item (click)="logout()" class="mat-elevation-z1">
                 <i class="material-icons">logout</i>
                 Logout
             </a>
