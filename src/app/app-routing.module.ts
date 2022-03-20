@@ -4,13 +4,14 @@ import { NavComponent } from './components/nav/nav.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { RouteguardGuard } from './routeguard/routeguard';
 
 const routes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
   {
-    path: '', component: NavComponent, children: [
+    path: '', component: NavComponent, canActivate: [RouteguardGuard], children: [
       { path: 'home', component: HomeComponent },
       { path: 'tecnicos', component: TechnicianListComponent }
     ]
