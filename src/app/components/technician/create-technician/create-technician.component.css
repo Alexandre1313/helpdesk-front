@@ -43,3 +43,6 @@ img {
     margin-top: 1%;
     background: linear-gradient(169deg, rgba(232,134,134,1) 100%, rgba(236,245,244,0.48783263305322133) 100%);
 }
+.mat-icon {
+    opacity: .4;
+}

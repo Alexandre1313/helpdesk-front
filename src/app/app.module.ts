@@ -36,6 +36,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { CreateTechnicianComponent } from './components/technician/create-technician/create-technician.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { CreateTechnicianComponent } from './components/technician/create-techni
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({timeOut: 4000,
-      closeButton: true, progressBar: true})
+      closeButton: true, progressBar: true}),
+    NgxMaskModule.forRoot()
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

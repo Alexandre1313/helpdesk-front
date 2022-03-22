@@ -1,3 +1,7 @@
+import { ToastrService } from 'ngx-toastr';
+import { Technician } from './../../../models/technician';
+import { TechnicianService } from './../../../services/technician.service';
+import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTechnicianComponent implements OnInit {
 
-  constructor() { }
+  technician: Technician = {
+    id: '',
+    name: '',
+    itin: '',
+    email: '',
+    password: '',
+    profiles: [],
+    creationDate: ''
+  }
+
+  name: FormControl = new FormControl(null, [Validators.minLength(3),
+     Validators.required, Validators.maxLength(50)]);
+  itin: FormControl = new FormControl(null,Validators.required);
+  email: FormControl = new FormControl(null, [Validators.email, Validators.required]);
+  password: FormControl = new FormControl(null, [Validators.minLength(6), Validators.required]);
+
+  constructor(
+    private service: TechnicianService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  fields_validate(): boolean {
+    return this.name.valid && this.email.valid
+    && this.itin.valid && this.password.valid;
+  }
+
+  create(): void {
+    this.service.create(this.technician).subscribe(() =>{
+      this.toastr.success('Técnico cadastrado com sucesso!')
+    }, ex => {
+      console.log(ex)
+    })
+  }
+
+  addProfile(profile: any): void {
+    console.log(this.technician.profiles);
+    if(this.technician.profiles.includes(profile)){
+      this.technician.profiles.splice(this.technician.profiles.indexOf(profile), 1);
+    }else{
+      this.technician.profiles.push(profile);
+    }
+  }
 }
