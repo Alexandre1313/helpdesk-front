@@ -42,11 +42,17 @@ export class CreateTechnicianComponent implements OnInit {
 
   create(): void {
     this.service.create(this.technician).subscribe(() =>{
-      this.toastr.success('Técnico cadastrado com sucesso!')
+      this.toastr.success('Técnico cadastrado com sucesso!', 'Cadastro');
     }, ex => {
-      console.log(ex)
-    })
-  }
+      console.log(ex);
+      if(ex.error.errors){
+        ex.error.errors.forEach((element: { message: string; }) => {
+          this.toastr.error(element.message, 'Cadastro');
+        })
+        } else{
+          this.toastr.error(ex.error.message, 'Cadastro');
+        }})}
+      
 
   addProfile(profile: any): void {
     console.log(this.technician.profiles);

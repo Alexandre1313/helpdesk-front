@@ -16,6 +16,6 @@ export class TechnicianService {
   }
 
   create(technician: Technician): Observable<Technician> {
-    return this.http.post<Technician>(`${API_CONFIG}/tecnicos`, technician);
+    return this.http.post<Technician>(`${API_CONFIG.baseUrl}/tecnicos`, technician);
   }
 }

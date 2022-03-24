@@ -13,7 +13,7 @@ export class TechnicianListComponent implements OnInit {
 
   ELEMENT_DATA: Technician[] = []
 
-  displayedColumns: string[] = ['id', 'name', 'itin', 'email', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'itin', 'email', 'actions', 'actions1'];
   dataSource = new MatTableDataSource<Technician>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
