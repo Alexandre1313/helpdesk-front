@@ -1,14 +1,14 @@
 <div class="container">
-    <h1>Cadastrar novo técnico</h1>
+    <h1>Atualizar dados de um cliente</h1>
     <div class="container2 mat-elevation-z9">
         <form class="form">
-            <img src="assets/img/technician-create.svg" alt="Imagem tácnico create">
+            <img src="assets/img/side-image.svg" alt="Imagem tácnico update">
             <section class="section">
                 <mat-checkbox (click)="addProfile(0)" class="margin"
                 color="primary">Administrador</mat-checkbox>
                 <mat-checkbox (click)="addProfile(2)" class="margin" 
                 color="primary">Técnico</mat-checkbox>
-                <mat-checkbox (click)="addProfile(1)"  class="margin" 
+                <mat-checkbox (click)="addProfile(1)" class="margin" 
                 color="primary">Cliente</mat-checkbox>
             </section>
             <p>
@@ -16,7 +16,7 @@
                     <mat-label>Nome</mat-label>
                     <input matInput placeholder="Ex..Name Lastname"
                     [formControl]="name"
-                    [(ngModel)]="technician.name"
+                    [(ngModel)]="client.name"
                     name="name">
                     <mat-icon matSuffix>person</mat-icon>
                 </mat-form-field>
@@ -27,7 +27,7 @@
                     <input matInput placeholder="Ex..123.456.789-99"
                     [formControl]="itin"
                     mask="000.000.000-00"
-                    [(ngModel)]="technician.itin"
+                    [(ngModel)]="client.itin"
                     name="itin">
                     <mat-icon matSuffix>pin</mat-icon>
                 </mat-form-field>
@@ -37,7 +37,7 @@
                     <mat-label>E-mail</mat-label>
                     <input matInput placeholder="Ex..example@email.com"
                     [formControl]="email"
-                    [(ngModel)]="technician.email"
+                    [(ngModel)]="client.email"
                     name="email">
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
@@ -47,13 +47,16 @@
                     <mat-label>Senha</mat-label>
                     <input type="password" matInput placeholder="Ex..******"
                     [formControl]="password"
-                    [(ngModel)]="technician.password"
+                    [(ngModel)]="client.password"
                     name="password">
                     <mat-icon matSuffix>lock_open</mat-icon>
                 </mat-form-field>
             </p>
         </form>
-        <button (click)="create()" [disabled]="!fields_validate()" mat-stroked-button class="btn mat-elevation-z9">Cadastrar</button>
-        <button routerLink="../" mat-stroked-button class="btn1 mat-elevation-z9">Cancelar</button>
+        <button [disabled]="!profileFieldsValidators()"
+          (click)="update()"
+          mat-stroked-button class="btn mat-elevation-z9">Atualizar</button>
+        <button routerLink="../../" mat-stroked-button class="btn1 mat-elevation-z9"
+        >Cancelar</button>
     </div>
 </div>

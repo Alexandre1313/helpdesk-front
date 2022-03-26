@@ -37,6 +37,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { CreateTechnicianComponent } from './components/technician/create-technician/create-technician.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { TechnicianUpdateComponent } from './components/technician/technician-update/technician-update.component';
+import { TechnicianDeleteComponent } from './components/technician/technician-delete/technician-delete.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { CreateClientComponent } from './components/client/create-client/create-client.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 
 
 @NgModule({
@@ -47,7 +53,13 @@ import { NgxMaskModule } from 'ngx-mask';
     HeaderComponent,
     TechnicianListComponent,
     LoginComponent,
-    CreateTechnicianComponent
+    CreateTechnicianComponent,
+    TechnicianUpdateComponent,
+    TechnicianDeleteComponent,
+    CreateClientComponent,
+    ClientListComponent,
+    ClientDeleteComponent,
+    ClientUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,21 @@
 <div class="container">
-    <h1>Cadastrar novo técnico</h1>
+    <h1>Excluir técnico</h1>
     <div class="container2 mat-elevation-z9">
         <form class="form">
-            <img src="assets/img/technician-create.svg" alt="Imagem tácnico create">
+            <img src="assets/img/side-image.svg" alt="Imagem tácnico update">
             <section class="section">
-                <mat-checkbox (click)="addProfile(0)" class="margin"
+                <mat-checkbox [disabled]="true" class="margin"
                 color="primary">Administrador</mat-checkbox>
-                <mat-checkbox (click)="addProfile(2)" class="margin" 
+                <mat-checkbox  [disabled]="true" class="margin" 
                 color="primary">Técnico</mat-checkbox>
-                <mat-checkbox (click)="addProfile(1)"  class="margin" 
+                <mat-checkbox  [disabled]="true" class="margin" 
                 color="primary">Cliente</mat-checkbox>
             </section>
             <p>
                 <mat-form-field class="fullwidth1" appearance="legacy">
                     <mat-label>Nome</mat-label>
                     <input matInput placeholder="Ex..Name Lastname"
-                    [formControl]="name"
+                    [disabled]="true"
                     [(ngModel)]="technician.name"
                     name="name">
                     <mat-icon matSuffix>person</mat-icon>
@@ -25,7 +25,7 @@
                 <mat-form-field class="fullwidth" appearance="legacy">
                     <mat-label>CPF</mat-label>
                     <input matInput placeholder="Ex..123.456.789-99"
-                    [formControl]="itin"
+                    [disabled]="true"
                     mask="000.000.000-00"
                     [(ngModel)]="technician.itin"
                     name="itin">
@@ -36,7 +36,7 @@
                 <mat-form-field class="fullwidth" appearance="legacy">
                     <mat-label>E-mail</mat-label>
                     <input matInput placeholder="Ex..example@email.com"
-                    [formControl]="email"
+                    [disabled]="true"
                     [(ngModel)]="technician.email"
                     name="email">
                     <mat-icon matSuffix>email</mat-icon>
@@ -46,14 +46,17 @@
                 <mat-form-field class="fullwidth" appearance="legacy">
                     <mat-label>Senha</mat-label>
                     <input type="password" matInput placeholder="Ex..******"
-                    [formControl]="password"
+                    [disabled]="true"
                     [(ngModel)]="technician.password"
                     name="password">
                     <mat-icon matSuffix>lock_open</mat-icon>
                 </mat-form-field>
             </p>
         </form>
-        <button (click)="create()" [disabled]="!fields_validate()" mat-stroked-button class="btn mat-elevation-z9">Cadastrar</button>
-        <button routerLink="../" mat-stroked-button class="btn1 mat-elevation-z9">Cancelar</button>
+        <button 
+          (click)="delete()"
+          mat-stroked-button class="btn mat-elevation-z9">Excluir</button>
+        <button routerLink="../../" mat-stroked-button class="btn1 mat-elevation-z9"
+        >Cancelar</button>
     </div>
 </div>

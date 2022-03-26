@@ -6,6 +6,12 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { RouteguardGuard } from './routeguard/routeguard';
+import { TechnicianUpdateComponent } from './components/technician/technician-update/technician-update.component';
+import { TechnicianDeleteComponent } from './components/technician/technician-delete/technician-delete.component';
+import { CreateClientComponent } from './components/client/create-client/create-client.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 
 const routes: Routes = [
   {
@@ -14,8 +20,16 @@ const routes: Routes = [
   {
     path: '', component: NavComponent, canActivate: [RouteguardGuard], children: [
       { path: 'home', component: HomeComponent },
+
       { path: 'tecnicos', component: TechnicianListComponent },
-      { path: 'tecnicos/create', component: CreateTechnicianComponent }
+      { path: 'tecnicos/create', component: CreateTechnicianComponent },
+      { path: 'tecnicos/update/:id', component: TechnicianUpdateComponent },
+      { path: 'tecnicos/delete/:id', component: TechnicianDeleteComponent }, 
+
+      { path: 'clientes', component: ClientListComponent },
+      { path: 'clientes/create', component: CreateClientComponent },
+      { path: 'clientes/update/:id', component: ClientUpdateComponent },
+      { path: 'clientes/delete/:id', component: ClientDeleteComponent }
     ]
   }
 ];
