@@ -1,7 +1,7 @@
 .card {
     width: 90%;
     margin: 1rem auto;
-    background-color: rgb(235, 235, 235);
+    background: linear-gradient(169deg, rgba(2,0,36,1) 0%, rgba(23,218,81,0.023144291896446068) 0%, rgba(47,218,23,0.17720591654630602) 100%);
 }
 img {
     height: 20rem;

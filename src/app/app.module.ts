@@ -44,6 +44,7 @@ import { CreateClientComponent } from './components/client/create-client/create-
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 import { CalledListComponent } from './components/called/called-list/called-list.component';
+import { CalledCreateComponent } from './components/called/called-create/called-create.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { CalledListComponent } from './components/called/called-list/called-list
     ClientListComponent,
     ClientDeleteComponent,
     ClientUpdateComponent,
-    CalledListComponent
+    CalledListComponent,
+    CalledCreateComponent
   ],
   imports: [
     BrowserModule,
