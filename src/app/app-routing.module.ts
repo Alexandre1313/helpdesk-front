@@ -13,6 +13,7 @@ import { CreateClientComponent } from './components/client/create-client/create-
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
 import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
+import { CalledCreateComponent } from './components/called/called-create/called-create.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
       { path: 'clientes/update/:id', component: ClientUpdateComponent },
       { path: 'clientes/delete/:id', component: ClientDeleteComponent },
 
-      { path: 'chamados', component: CalledListComponent}
+      { path: 'chamados', component: CalledListComponent},
+      { path: 'chamados/create', component: CalledCreateComponent}
     ]
   }
 ];

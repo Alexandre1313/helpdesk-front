@@ -1,1 +1,55 @@
-<p>called-create works!</p>
+<div class="conteiner0">
+    <h1>Abrindo novo chamado</h1>
+    <div class="conteiner mat-elevation-z9">
+        <img src="assets/img/called-create.svg" alt="Abrindo chamado">
+        <form class="form">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Título do chamado</mat-label>
+                <input  [formControl]="title" matInput placeholder="Ex..trocar bateria de notbook">
+            </mat-form-field>
+        </form>
+        <div class="technician">
+            <mat-form-field appearance="outline">
+                <mat-label>Cliente</mat-label>
+                <mat-select [formControl]="client">
+                    <mat-option value="0">Christian</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Técnico</mat-label>
+                <mat-select [formControl]="technician">
+                    <mat-option value="0">Alexandre</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="status-priority">
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select [formControl]="status">
+                    <mat-option value="0">Aberto</mat-option>
+                    <mat-option value="1">Em andamento</mat-option>
+                    <mat-option value="2">Encerrado</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Prioridade</mat-label>
+                <mat-select [formControl]="priority">
+                    <mat-option value="0">Baixa</mat-option>
+                    <mat-option value="1">Média</mat-option>
+                    <mat-option value="2">Alta</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="text-area">
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição do problema</mat-label>
+                <textarea [formControl]="comments" class="description" matInput placeholder="Ex..bateria de notbook não segura carga"></textarea>
+              </mat-form-field>
+        </div>
+        <button routerLink="" [disabled]="!fieldsValidators()"
+         mat-stroked-button class="btn mat-elevation-z9"
+        >Cadastrar</button>
+        <button routerLink="" mat-stroked-button class="btn1 mat-elevation-z9"
+        >Cancelar</button>
+    </div>
+</div>
