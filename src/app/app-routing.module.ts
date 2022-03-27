@@ -1,3 +1,4 @@
+import { CalledListComponent } from './components/called/called-list/called-list.component';
 import { CreateTechnicianComponent } from './components/technician/create-technician/create-technician.component';
 import { LoginComponent } from './components/login/login.component';
 import { TechnicianListComponent } from './components/technician/technician-list/technician-list.component';
@@ -29,7 +30,9 @@ const routes: Routes = [
       { path: 'clientes', component: ClientListComponent },
       { path: 'clientes/create', component: CreateClientComponent },
       { path: 'clientes/update/:id', component: ClientUpdateComponent },
-      { path: 'clientes/delete/:id', component: ClientDeleteComponent }
+      { path: 'clientes/delete/:id', component: ClientDeleteComponent },
+
+      { path: 'chamados', component: CalledListComponent}
     ]
   }
 ];
