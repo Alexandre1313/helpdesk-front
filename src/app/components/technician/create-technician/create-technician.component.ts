@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Technician } from './../../../models/technician';
 import { TechnicianService } from './../../../services/technician.service';
@@ -28,7 +29,8 @@ export class CreateTechnicianComponent implements OnInit {
 
   constructor(
     private service: TechnicianService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class CreateTechnicianComponent implements OnInit {
   create(): void {
     this.service.create(this.technician).subscribe(() =>{
       this.toastr.success('Técnico cadastrado com sucesso!', 'Cadastro');
+      this.router.navigate(['tecnicos']);
     }, ex => {
       if(ex.error.errors){
         ex.error.errors.forEach((element: { message: string; }) => {

@@ -3,6 +3,7 @@ import { Client } from '../../../models/client';
 import { ClientService } from '../../../services/client.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-client',
@@ -28,7 +29,8 @@ export class CreateClientComponent implements OnInit {
 
   constructor(
     private service: ClientService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class CreateClientComponent implements OnInit {
   create(): void {
     this.service.create(this.client).subscribe(() =>{
       this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastro');
+      this.router.navigate(['clientes']);
     }, ex => {
       if(ex.error.errors){
         ex.error.errors.forEach((element: { message: string; }) => {
