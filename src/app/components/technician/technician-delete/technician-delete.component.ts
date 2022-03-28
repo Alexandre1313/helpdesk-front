@@ -17,8 +17,7 @@ export class TechnicianDeleteComponent implements OnInit {
     itin: '',
     email: '',
     password: '',
-    profiles: [],
-    creationDate: ''
+    profiles: []
   }
 
   constructor(
@@ -42,7 +41,7 @@ export class TechnicianDeleteComponent implements OnInit {
 
   delete(): void {
       this.service.delete(this.technician).subscribe(() => {
-        this.toastr.success('Técnico deletado com sucesso!', 'Exclusão');
+        this.toastr.success('Técnico excluído com sucesso!', 'Exclusão');
         this.router.navigate(['tecnicos']);
       }, ex => {
         if (ex.error.errors) {

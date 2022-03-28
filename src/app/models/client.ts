@@ -5,5 +5,4 @@ export interface Client {
     email: string;
     password: string;
     profiles: any[];
-    creationDate: any;
 }

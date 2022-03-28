@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -10,11 +10,11 @@ import { CalledService } from 'src/app/services/called.service';
 import { Called } from 'src/app/models/called';
 
 @Component({
-  selector: 'app-called-create',
-  templateUrl: './called-create.component.html',
-  styleUrls: ['./called-create.component.css']
+  selector: 'app-called-update',
+  templateUrl: './called-update.component.html',
+  styleUrls: ['./called-update.component.css']
 })
-export class CalledCreateComponent implements OnInit {
+export class CalledUpdateComponent implements OnInit {
 
   called: Called = {
     priority: '',
@@ -30,7 +30,7 @@ export class CalledCreateComponent implements OnInit {
   clients: Client[] = [];
   technicians: Technician[] = [];
 
-  
+
   title: FormControl = new FormControl(null, [Validators.required]);
   comments: FormControl = new FormControl(null, [Validators.required]);
   client: FormControl = new FormControl(null, [Validators.required]);
@@ -39,20 +39,23 @@ export class CalledCreateComponent implements OnInit {
   priority: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(private calledService: CalledService,
-              private clientService: ClientService,
-              private technicianService: TechnicianService,
-              private toastrService: ToastrService,
-              private router: Router) { }
+    private clientService: ClientService,
+    private technicianService: TechnicianService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.called.id = this.route.snapshot.paramMap.get('id');
     this.findAllClients();
     this.findAllTechnicians();
+    this.findById();
   }
 
   fieldsValidators(): boolean {
     return this.title.valid && this.comments.valid &&
-    this.client.valid && this.technician.valid &&
-    this.status.valid && this.priority.valid;
+      this.client.valid && this.technician.valid &&
+      this.status.valid && this.priority.valid;
   }
 
   findAllClients(): void {
@@ -67,12 +70,42 @@ export class CalledCreateComponent implements OnInit {
     })
   }
 
-  create(): void {
-    this.calledService.create(this.called).subscribe(answer => {
-      this.toastrService.success('Chamado cadastrado com sucesso!', 'Cadastro');
-      this.router.navigate(['chamados']);
+  findById(): void {
+    this.calledService.findById(this.called.id).subscribe(answer => {
+      this.called = answer;
     }, ex => {
-      this.toastrService.error(ex.error.error, 'Cadastro');
+      this.toastrService.error(ex.error.error, 'Atualização');
     })
   }
+
+  update(): void {
+    this.calledService.update(this.called).subscribe(answer => {
+      this.toastrService.success('Chamado atualizado com sucesso!', 'Atualização');
+      this.router.navigate(['chamados']);
+    }, ex => {
+      console.log(ex)
+      this.toastrService.error(ex.error.error, 'Atualização');
+    })
+  }
+
+  statusReturn(status: any): string {
+    if(status == '0'){
+      return 'Aberto';
+    }else if(status == '1'){
+      return 'Em andamento';
+    }else{
+      return 'Encerrado';
+    }
+  }
+
+  priorityReturn(priority: any): string {
+    if(priority == '0'){
+      return 'Baixa';
+    }else if(priority == '1'){
+      return 'Média';
+    }else{
+      return 'Alta';
+    }
+  }
+
 }

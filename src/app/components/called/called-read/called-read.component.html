@@ -1,0 +1,74 @@
+<div class="conteiner0">
+    <h1>Detalhes de um chamado</h1>
+    <div class="conteiner mat-elevation-z9">
+        <form class="form">
+            <mat-form-field class="full-width1" appearance="outline">
+                <mat-label>ID do chamado</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.id" name="id"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width1" appearance="outline">
+                <mat-label>Título do chamado</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.title" name="title"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width1" appearance="outline">
+                <mat-label>Data de abertura</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.openingDate" name="openingDate"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Nome do cliente</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.nameClient" name="nameClient"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>ID do cliente</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.client" name="client"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Data de fechamento</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.closingDate" name="closingDate"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Técnico responsável</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.nameTechnician" name="nameTechnician"
+                matInput>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>ID do técnico responsável</mat-label>
+                <input [disabled]="true" [(ngModel)]="called.technician" name="technician"
+                matInput>
+            </mat-form-field>
+            <mat-form-field  class="hg" appearance="outline">
+                <mat-label> STATUS ({{ statusReturn(called.status) }}) </mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="called.status" name="status">
+                    <mat-option value="0">Aberto</mat-option>
+                    <mat-option value="1">Em andamento</mat-option>
+                    <mat-option value="2">Encerrado</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field  class="hg" appearance="outline">
+                <mat-label> PRIORIDADE ({{ priorityReturn(called.priority) }}) </mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="called.priority" name="priority">
+                    <mat-option value="0">Baixa</mat-option>
+                    <mat-option value="1">Média</mat-option>
+                    <mat-option value="2">Alta</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <div class="text-area">
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição do problema</mat-label>
+                <textarea [disabled]="true"
+                [(ngModel)]="called.comments" name="comments"
+                class="description" 
+                matInput></textarea>
+              </mat-form-field>
+        </div>
+        <button routerLink="../../" mat-stroked-button class="btn1 mat-elevation-z9"
+        >Retornar para lista de chamados</button>
+    </div>
+</div>

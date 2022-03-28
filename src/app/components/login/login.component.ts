@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.service.successFullLogin(answer.headers.
         get('Authorization').substring(7));
         this.router.navigate([''])},() => {this.toast.
-        error('Usuário e/ou senha inválidos!');})
+        error('Usuário e/ou senha inválidos!', 'Login');})
   }
 
   fieldValidate(): boolean{

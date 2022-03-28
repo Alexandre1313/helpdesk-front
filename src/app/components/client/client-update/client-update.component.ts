@@ -18,8 +18,7 @@ export class ClientUpdateComponent implements OnInit {
     itin: '',
     email: '',
     password: '',
-    profiles: [],
-    creationDate: ''
+    profiles: []
   }
 
   name: FormControl = new FormControl(null, [Validators.minLength(3),
@@ -49,7 +48,7 @@ export class ClientUpdateComponent implements OnInit {
 
   update(): void {
       this.service.update(this.client).subscribe(() => {
-        this.toastr.success('Dados atualizados com sucesso!', 'Atualização');
+        this.toastr.success('Cliente atualizado com sucesso!', 'Atualização');
         this.router.navigate(['tecnicos']);
       }, ex => {
         if (ex.error.errors) {
@@ -63,7 +62,6 @@ export class ClientUpdateComponent implements OnInit {
     } 
   
   addProfile(profile: any): void {
-    console.log(this.client.profiles);
     if (this.client.profiles.includes(profile)) {
       this.client.profiles.splice(this.client.profiles.indexOf(profile), 1);
     } else {

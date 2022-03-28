@@ -17,8 +17,7 @@ export class CreateClientComponent implements OnInit {
     itin: '',
     email: '',
     password: '',
-    profiles: [],
-    creationDate: ''
+    profiles: []
   }
 
   name: FormControl = new FormControl(null, [Validators.minLength(3),
@@ -44,7 +43,6 @@ export class CreateClientComponent implements OnInit {
     this.service.create(this.client).subscribe(() =>{
       this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastro');
     }, ex => {
-      console.log(ex);
       if(ex.error.errors){
         ex.error.errors.forEach((element: { message: string; }) => {
           this.toastr.error(element.message, 'Cadastro');
